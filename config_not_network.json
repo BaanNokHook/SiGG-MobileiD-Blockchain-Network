@@ -1,0 +1,78 @@
+{
+    "server": {
+        "app_host": "0.0.0.0",
+        "app_port": "3000",
+        "use_https": false,
+        "key": "./ssl/sgl-fe-csr.pem",
+        "cert": "./ssl/sgl-fe-key.pem"
+    },
+    "app":{
+        "appName": "applebroker",
+        "platformName": "Windows",
+        "appVersion": "v.1.0.0",
+        "partnerId": "123456",
+        "ptsAppKeyName": "yyyyyy",
+        "profileName": "TV Provider Set Top Box",
+        "model": "appleTV",
+        "clientId":"p/w1vuox2Ebb+EMtwVhe1EEPn9PXySipMQtfLCDImwQ=",
+        "msisdnPrefix": [66],
+        "fbbidPrefix": [88,89],
+        "http_req_timeout": 10,
+        "session": 30
+    },
+    "service": {
+        "aaf": {
+            "default": {
+                "conn_type": "http123",
+                "ip": "127.0.0.1",
+                "port": "3000",
+                "path": "/getTime",
+                "max_retry": 3,
+                "timeout": 3,
+                "retry_condition": "TIMEOUT|CONNECTION_ERROR"
+            }
+        },
+        "mock": {
+            "default": {
+                "conn_type": "http",
+                "ip": "127.0.0.1",
+                "port": "3000",
+                "path": "/getTime",
+                "max_retry": 3,
+                "timeout": 3,
+                "retry_condition": "TIMEOUT|CONNECTION_ERROR"
+            }
+        }
+    },
+    "log": {
+        "applog": {
+            "path": "./logs/appLog/",
+            "level": "debug",
+            "console": true,
+            "file": true,
+            "rotation_time": 60,
+            "format": "pipe"
+        },
+        "summary": {
+            "path": "./logs/summary/",
+            "console": true,
+            "file": true,
+            "rotation_time": 60
+        },
+        "detail": {
+            "path": "./logs/detail/",
+            "console": true,
+            "file": true,
+            "rotation_time": 60,
+            "format": "pipe"
+        },
+        "stat": {
+            "path": "./logs/stat/",
+            "console": true,
+            "file": true,
+            "rotation_time": 60,
+            "statInterval": 1,
+            "mode": 0
+        }
+    }
+}
